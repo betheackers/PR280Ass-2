@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Select a text file</h2>
+    <input type="file" @change="onFileChange" multiple>
+    <br />
+    <br />
+    {{content}}
+  </div>
+
+  <script src="loader.js"></script>
+</body>
+
+</html>
