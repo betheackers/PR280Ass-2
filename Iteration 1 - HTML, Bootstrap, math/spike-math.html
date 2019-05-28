@@ -84,17 +84,36 @@
 
     function square (n) {
       let x = Math.pow(n,2)
+      return x
     }
-    var xpowered = square(sumX)
-    console.log(xpowered)
+    var npoweredX = square(sumX)
+    console.log('this is squared number for x sum', npoweredX)
 
-    console.log('This is nTimesSquaredSumArrays', nTimesSquaredSumArrays(y, sumYSquared))
+    console.log('This is nTimesSquaredSumArrays for x', nTimesSquaredSumArrays(x, sumXSquared))
 
+    console.log('This is nTimesSquaredSumArrays - npoweredX for x', nTimesSquaredSumArrays(x, sumXSquared)-npoweredX)
 
-    // console.log('This is nTimesSumArrays - sumArrayTimesArray', nTimesSumArrays(x, sumXSquared)-sumXTimesSumY)
+    var leftbottom = nTimesSquaredSumArrays(x, sumXSquared)-npoweredX
 
+    console.log('this is left bottom of equation', leftbottom)
 
+    var npoweredY = square(sumY)
+    console.log('This is nTimesSquaredSumArrays for y', nTimesSquaredSumArrays(y, sumYSquared))
 
+    console.log('This is nTimesSquaredSumArrays - npoweredY for y', nTimesSquaredSumArrays(y, sumYSquared)-npoweredY)
+
+    var rightbottom = nTimesSquaredSumArrays(y, sumYSquared)-npoweredY
+
+    var xAndY = leftbottom * rightbottom
+
+    var bottomRow = Math.sqrt(xAndY)
+    console.log('This is left times right bottom after sqrt which is the bottom row', bottomRow)
+
+    var r = topRow/bottomRow
+    console.log('R is:', r)
+
+    var rSquared = square(r)
+    console.log('This is the end', rSquared)
 
 
   </script>
