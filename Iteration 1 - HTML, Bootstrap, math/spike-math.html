@@ -53,6 +53,25 @@
     console.log('sum of x and y arrays:')
     console.log(sumArray(arrayTimesArray(x,y)))
 
+    var sumX = sumArray(x)
+    console.log('This is sumX',sumX)
+    var sumY = sumArray(y)
+    console.log('This is sumY', sumY)
+    var sumXSquared = sumArray(arraySquare(x))
+    console.log('This is sumXSquared', sumXSquared)
+    var sumYSquared = sumArray(arraySquare(y))
+    console.log('This is sumYSquared', sumYSquared)
+    var sumArrayTimesArray = sumArray(arrayTimesArray(x,y))
+    console.log('This is sumArrayTimesArray', sumArrayTimesArray)
+    var sumXTimesSumY = sumArray(x) * sumArray(y)
+    console.log('This is sumXTimesSumY', sumXTimesSumY)
+
+    function arrayTimesSumArrays (array) {
+      return array.length * sumArrayTimesArray
+    }
+
+    console.log(arrayTimesSumArrays(x))
+
   </script>
 </body>
 </html>
