@@ -66,11 +66,36 @@
     var sumXTimesSumY = sumArray(x) * sumArray(y)
     console.log('This is sumXTimesSumY', sumXTimesSumY)
 
-    function arrayTimesSumArrays (array) {
+    function nTimesSumArrays (array) {
       return array.length * sumArrayTimesArray
     }
 
-    console.log(arrayTimesSumArrays(x))
+    console.log('This is nTimesSumArrays', nTimesSumArrays(x))
+
+    var topRow = nTimesSumArrays(x)-sumXTimesSumY
+    console.log('This is topRow', topRow)
+
+
+    function nTimesSquaredSumArrays (array, squaredSumArr) {
+      return array.length*squaredSumArr
+    }
+
+    console.log('This is nTimesSquaredSumArrays', nTimesSquaredSumArrays(x, sumXSquared))
+
+    function square (n) {
+      let x = Math.pow(n,2)
+    }
+    var xpowered = square(sumX)
+    console.log(xpowered)
+
+    console.log('This is nTimesSquaredSumArrays', nTimesSquaredSumArrays(y, sumYSquared))
+
+
+    // console.log('This is nTimesSumArrays - sumArrayTimesArray', nTimesSumArrays(x, sumXSquared)-sumXTimesSumY)
+
+
+
+
 
   </script>
 </body>
