@@ -4,16 +4,16 @@ Create a SPA which reads text files with numbers and calculate the coefficient o
 
 Examples of what to include (choose 100%):
 
-	Write a program that calculates the correlation of two arrays of numbers [20 marks]
-	Adapt / extend the first program to calculate the regression of two arrays of numbers. [20 Marks, but deductions for DUPLICATE CODE]
-	Provide a user interface with Vuejs [10 marks]
-	Provide a user interface with Reactjs [10 marks]
-	Provide a user interface with Nodejs [10 marks]
-	Enhance the user interface with Bootstrap css [10 marks]
-	Create a command line application for Nodejs that reads and write to file [10 marks]
-	Create a RESTful web service for Nodejs that return JSON data [10 marks]
-	Provide Jasminejs unit tests [10 marks]
-	Provide Cucumberjs unit tests [10 marks]
+	1. Write a program that calculates the correlation of two arrays of numbers [20 marks]
+	2. Adapt / extend the first program to calculate the regression of two arrays of numbers. [20 Marks, but deductions for DUPLICATE CODE]
+	3. Provide a user interface with Vuejs [10 marks]
+	4. Provide a user interface with Reactjs [10 marks]
+	5. Provide a user interface with Nodejs [10 marks]
+	6. Enhance the user interface with Bootstrap css [10 marks]
+	7. Create a command line application for Nodejs that reads and write to file [10 marks]
+	8. Create a RESTful web service for Nodejs that return JSON data [10 marks]
+	9. Provide Jasminejs unit tests [10 marks]
+	10. Provide Cucumberjs unit tests [10 marks]
 
 There are NIL marks for the following, but it will be useful for the final 50% assessment.
 
