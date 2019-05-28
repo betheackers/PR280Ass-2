@@ -18,7 +18,7 @@
     function getSum(total, num) {
       return total + num;
     }
-
+    console.log('sum of arrays:')
     console.log(sumArray(x))
     console.log(sumArray(y))
 
@@ -27,21 +27,31 @@
     }
 
     function arraySquare(array) {
-
+      let squaredArray = []
+      for (var i = 0; i < array.length; i++) {
+        squaredArray.push(Math.pow(array[i],2))
+      }
+      return squaredArray
     }
+    console.log('squares of arrays:')
     console.log(arraySquare(x))
+    console.log(arraySquare(y))
 
-    function sumArraySquared () {
+    console.log('sum of squared arrays:')
+    console.log(sumArray(arraySquare(x)))
+    console.log(sumArray(arraySquare(y)))
 
+    function arrayTimesArray (array1, array2) {
+      let arraysTimed = []
+      for (var i = 0; i < array1.length; i++) {
+        arraysTimed.push(array1[i] * array2[i])
+      }
+      return arraysTimed
     }
-
-    function arrayTimesArray () {
-
-    }
-
-    function sumArrayTimesArray () {
-
-    }
+    console.log('x array times y array:')
+    console.log(arrayTimesArray(x,y))
+    console.log('sum of x and y arrays:')
+    console.log(sumArray(arrayTimesArray(x,y)))
 
   </script>
 </body>
