@@ -28,7 +28,7 @@
 
     function arraySquare(array) {
       let squaredArray = []
-      for (var i = 0; i < array.length; i++) {
+      for (let i = 0; i < array.length; i++) {
         squaredArray.push(Math.pow(array[i],2))
       }
       return squaredArray
@@ -43,7 +43,7 @@
 
     function arrayTimesArray (array1, array2) {
       let arraysTimed = []
-      for (var i = 0; i < array1.length; i++) {
+      for (let i = 0; i < array1.length; i++) {
         arraysTimed.push(array1[i] * array2[i])
       }
       return arraysTimed

@@ -18,4 +18,8 @@ class ArrayCalculator {
     }
     return squaredArray
   }
+  square (n) { // may need to be in other calc
+    let x = Math.pow(n,2)
+    return x
+  }
 }
