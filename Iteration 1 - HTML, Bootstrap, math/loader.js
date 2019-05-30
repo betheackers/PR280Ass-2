@@ -4,13 +4,15 @@
 var FileLoader = new Vue({
   template: `<div class="row">
                 <div class="col-sm">
-                <h2>Select your text file</h2>
-                <input type="file" @change="onFileChange" multiple>
+                  <h2>Select your first text file</h2>
+                  <input type="file" @change="onFileChange">
                   <br />
                   <br />
                   {{content}}
                 </div>
                 <div class="col-sm">
+                  <h2>Select a second text file</h2>
+                  <input type="file" @change="onFileChange">
                   <br />
                   <br />
                   {{secondContent}}
@@ -22,25 +24,21 @@ var FileLoader = new Vue({
     secondContent: '',
     firstFileLoaded: false
   },
-
-
   methods: {
     onFileChange(e) {
       let files = e.target.files
       if (files.length) {
-        this.loadFile(files[0])
-        this.firstFileLoaded = true
-        this.loadFile(files[1])
+        this.loadNumbers(files[0])
       }
     },
-    loadFile(file) {
+    loadNumbers(file) {
       let reader = new FileReader()
       reader.onload = (e) => {
         if (this.firstFileLoaded === false) {
-          this.content = e.target.files[0]
+          this.content = e.target.result
+          this.firstFileLoaded = true
         } else {
-          this.secondContent = e.target.files[1]
-          console.log(this.secondContent)
+          this.secondContent = e.target.result
         }
       }
       reader.readAsText(file)
@@ -48,6 +46,7 @@ var FileLoader = new Vue({
   }
 })
 
+//Chris' uploader
 // handleChange: function (e) {
 //   let [x, y] = e.target.files
 //   let obj = {x,y} // inits iterator object
