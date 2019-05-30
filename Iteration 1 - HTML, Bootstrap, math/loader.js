@@ -10,8 +10,8 @@ var FileLoader = new Vue({
                   <br />
                   {{content}}
                 </div>
-                <div class="col-sm">
-                  <h2>Select a second text file</h2>
+                <div v-if="firstFileLoaded === true" class="col-sm">
+                  <h2 >Select a second text file</h2>
                   <input type="file" @change="onFileChange">
                   <br />
                   <br />
@@ -20,8 +20,8 @@ var FileLoader = new Vue({
             </div>`,
   el: '#appFileLoader',
   data: {
-    content: '',
-    secondContent: '',
+    content: [],
+    secondContent: [],
     firstFileLoaded: false
   },
   methods: {
@@ -35,27 +35,15 @@ var FileLoader = new Vue({
       let reader = new FileReader()
       reader.onload = (e) => {
         if (this.firstFileLoaded === false) {
-          this.content = e.target.result
+          console.log(e.target.result)
+          this.content.push(e.target.result.split(/\s+/g))
+          console.log(this.content)
           this.firstFileLoaded = true
         } else {
-          this.secondContent = e.target.result
+          this.secondContent.push(e.target.result.split(/\s+/g))
         }
       }
       reader.readAsText(file)
     }
   }
 })
-
-//Chris' uploader
-// handleChange: function (e) {
-//   let [x, y] = e.target.files
-//   let obj = {x,y} // inits iterator object
-//   for (let key in obj) {
-//     let reader = new FileReader()
-//     reader.onload = (e) => {
-//       console.log(e.target.result)
-//       this.arrs[key] = e.target.result.split(/\s+/g).map(val => parseInt(val))
-//     }
-//     reader.readAsText(obj[key])
-//   }
-// }
