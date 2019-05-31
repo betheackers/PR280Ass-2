@@ -1,7 +1,8 @@
 class BiArraysCalculator {
-  constructor () {
-    this.
-
+  constructor (arrays) {
+    this.arrays = arrays
+    this.sumArrayTimesArray = 0
+    this.sumXTimesSumY = 0
   }
   arrayTimesArray (array1, array2) {
     let arraysTimed = []

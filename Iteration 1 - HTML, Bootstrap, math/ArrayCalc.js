@@ -1,13 +1,14 @@
 class ArrayCalculator {
-  constructor () {
-    this.array = []
+  constructor (array) {
+    this.array = array
     this.sum = 0
     this.squareArray = []
-
+    this.square = 0
+    this.sumArraySquared = 0
   }
   getSum(total, num) {
-    return total + num;
-  } // not sure how this one works
+    this.sum = total + num // will this work?
+  }
   sumArray (array) {
     return array.reduce(getSum)
   }
