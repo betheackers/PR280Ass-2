@@ -36,11 +36,11 @@ var FileLoader = new Vue({
       reader.onload = (e) => {
         if (this.firstFileLoaded === false) {
           console.log(e.target.result)
-          this.content.push(e.target.result.split(/\s+/g))
+          this.content += e.target.result.split(/\s+/g)
           console.log(this.content)
           this.firstFileLoaded = true
         } else {
-          this.secondContent.push(e.target.result.split(/\s+/g))
+          this.secondContent += e.target.result.split(/\s+/g)
         }
       }
       reader.readAsText(file)
