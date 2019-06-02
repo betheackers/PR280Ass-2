@@ -18,16 +18,13 @@
       </header>
 
       <main>
-        <div class="container">
-          <div id="appFileLoader"></div>
-        </div>
-
-        <div class="container">
-          <div id="output"></div>
-
-        <div class="container">
-          <div id="calculation"></div>
-        </div>
+        <div id="calculation-app">
+          <div class="container">
+            <file-loader></file-loader>
+          </div>
+          <br><br>
+          <div class="container">
+            <output-component></output-component>
           </div>
         </div>
       </main>
@@ -35,8 +32,10 @@
       <footer class="page-footer font-small text-center container">
         <p>Beth Ackerman - PR280 - Assignment 1</p>
       </footer>
-      <script src="loader.js"></script>
-      <script src="vue-Calc.js"></script>
       <script src="CorrelationDetermination.js"></script>
+      <script src="loader.js"></script>
+      <script src="output-component.js"></script>
+      <script src="vue-Calc.js"></script>
+
    </body>
 </html>

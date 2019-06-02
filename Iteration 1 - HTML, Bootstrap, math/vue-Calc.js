@@ -1,9 +1,9 @@
 var calc = new Vue ({
-  el: '#calculation',
-  // components: {
-  //   'one-array-calc': ArrayCalc,
-  //   'bi-array-calc': BiArrayCalc
-  // },
+  el: '#calculation-app',
+  components: {
+    'file-loader': fileLoader,
+    'output-component': outputComponent
+  },
   data : {
         // new CorrelationDetermination(array1, array2)
         // new LinearRegression (array1, array2)
@@ -15,11 +15,11 @@ var calc = new Vue ({
   methods : {
     getData (array) {
       // get data from loaded files
-    }
+    },
     addData (arrayX, arrayY) {
       // add data to new class
       this.correlation.push(new CorrelationDetermination(arrayX, arrayY))
-    }
+    },
     calcCorrelation (arrayX, arrayY) {
       let result = this.correlation.calcCorrelation(arrayX, arrayY)
       return result

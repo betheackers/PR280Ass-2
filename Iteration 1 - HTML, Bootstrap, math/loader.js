@@ -1,7 +1,7 @@
 // https://codepen.io/Anveio/pen/XzYBzX
 // https://stackoverflow.com/questions/13729301/html5-file-api-how-to-see-the-result-of-readastext
 
-var FileLoader = new Vue({
+var fileLoader = {
   template: `<div class="row">
                 <div class="col-sm">
                   <h2>Select your first text file</h2>
@@ -18,11 +18,12 @@ var FileLoader = new Vue({
                   {{secondContent}}
                 </div>
             </div>`,
-  el: '#appFileLoader',
-  data: {
-    content: [],
-    secondContent: [],
-    firstFileLoaded: false
+  data: function () {
+    return {
+      content: [],
+      secondContent: [],
+      firstFileLoaded: false
+    }
   },
   methods: {
     onFileChange(e) {
@@ -46,4 +47,4 @@ var FileLoader = new Vue({
       reader.readAsText(file)
     }
   }
-})
+}
