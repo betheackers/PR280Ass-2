@@ -1,15 +1,43 @@
 var calc = new Vue ({
   el: '#calculation',
+  // components: {
+  //   'one-array-calc': ArrayCalc,
+  //   'bi-array-calc': BiArrayCalc
+  // },
   data : {
-      calculators: [
-        new CorrelationDetermination(array1, array2)
+        // new CorrelationDetermination(array1, array2)
         // new LinearRegression (array1, array2)
-      ]
+        correlation: [],
+        regression:[],
+        correlationDetResult: 0,
+        linearRegResult: 0
   },
   methods : {
-    // calcSum (x) {
-    //   let sumX = new CorrelationDetermination
+    getData (array) {
+      // get data from loaded files
     }
-
+    addData (arrayX, arrayY) {
+      // add data to new class
+      this.correlation.push(new CorrelationDetermination(arrayX, arrayY))
+    }
+    calcCorrelation (arrayX, arrayY) {
+      let result = this.correlation.calcCorrelation(arrayX, arrayY)
+      return result
+    }
   }
 })
+
+//
+// var ArrayCalc = {
+//   data: function () {
+//     return {
+//
+//     }
+//   }
+// }
+// var BiArrayCalc = {
+//   data: function () {
+//     return {
+//
+//     }
+// }
