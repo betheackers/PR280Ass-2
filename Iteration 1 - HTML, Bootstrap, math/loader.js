@@ -8,20 +8,20 @@ var fileLoader = {
                   <input type="file" @change="onFileChange">
                   <br />
                   <br />
-                  {{content}}
+                  {{firstArray}}
                 </div>
                 <div v-if="firstFileLoaded === true" class="col-sm">
                   <h2 >Select a second text file</h2>
                   <input type="file" @change="onFileChange">
                   <br />
                   <br />
-                  {{secondContent}}
+                  {{secondArray}}
                 </div>
             </div>`,
   data: function () {
     return {
-      content: [],
-      secondContent: [],
+      firstArray: [],
+      secondArray: [],
       firstFileLoaded: false
     }
   },
@@ -37,11 +37,12 @@ var fileLoader = {
       reader.onload = (e) => {
         if (this.firstFileLoaded === false) {
           console.log(e.target.result)
-          this.content += e.target.result.split(/\s+/g)
-          console.log(this.content)
+          this.firstArray.push(...e.target.result.split(/\s+/g).map(Number))
+          console.log(this.firstArray)
           this.firstFileLoaded = true
         } else {
-          this.secondContent += e.target.result.split(/\s+/g)
+          this.secondArray.push(...e.target.result.split(/\s+/g).map(Number))
+          console.log(this.secondArray)
         }
       }
       reader.readAsText(file)
