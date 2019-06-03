@@ -1,5 +1,5 @@
 class CorrelationDetermination {
-  constructor(x,y) {
+  constructor(x = [], y = []) {
     this.x = x
     this.y = y
     this.sumX = 0
@@ -16,19 +16,25 @@ class CorrelationDetermination {
     this.rightbottom = 0
     this.xAndY = 0
   }
-  calcCorrelation(arrayX, arrayY) {
+  calcCorrelation() {
+    let result = 0
+    this.sumX = this.sumArray(this.x)
+    this.sumY = this.sumArray(this.y)
+    console.log('This is sumX', this.sumX)
 
+    this.sumArrayTimesArray = this.sumArray(this.arrayTimesArray(this.x, this.y))
+    console.log('This is sumX', this.sumArrayTimesArray)
+
+    this.sumXTimesSumY = this.sumX * this.sumY
+    console.log('This is sumX', this.sumXTimesSumY)
+
+    return result
   }
   getSum(total, num) {
     return total + num;
   }
   sumArray (array) {
-    return array.reduce(getSum)
-  }
-  arraySquare(array) {
-    for (let i = 0; i < array.length; i++) {
-      this.squaredArray.push(Math.pow(array[i],2))
-    }
+    return array.reduce(this.getSum)
   }
   arrayTimesArray (array1, array2) {
     let arraysTimed = []
@@ -37,15 +43,20 @@ class CorrelationDetermination {
     }
     return arraysTimed
   }
-  sumSquaredArray (array) {
-    return this.sumArray(arraySquare(array))
+  arraySquare(array) {
+    for (let i = 0; i < array.length; i++) {
+      this.squaredArray.push(Math.pow(array[i],2))
+    }
   }
-  sumArrTimesArr (x, y) {
-    return this.sumArray(arrayTimesArray(x,y))
-  }
-  sumOfXTimesSumOfY () {
-    return sumX * sumY
-  }
+  // sumSquaredArray (array) {
+  //   return this.sumArray(arraySquare(array))
+  // }
+  // sumArrTimesArr (x, y) {
+  //   return this.sumArray(arrayTimesArray(x,y))
+  // }
+  // sumOfXTimesSumOfY () {
+  //   return sumX * sumY
+  // }
   nTimesSumArrays (array) {
     return array.length * sumArrayTimesArray
   }

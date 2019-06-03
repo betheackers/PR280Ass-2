@@ -34,7 +34,7 @@ var calc = new Vue ({
       this.correlation = new CorrelationDetermination(arrayX, arrayY)
     },
     calcCorrelation (arrayX, arrayY) {
-      let result = this.correlation.calcCorrelation(arrayX, arrayY)
+      let result = this.correlation.calcCorrelation()
       return result
     }
   }
