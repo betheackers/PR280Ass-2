@@ -23,7 +23,7 @@
             <file-loader @get-data="getData"></file-loader>
           </div>
           <br><br>
-          <div class="container">
+          <div v-if="correlationDetCalculated === true" class="container">
             <output-component></output-component>
           </div>
         </div>

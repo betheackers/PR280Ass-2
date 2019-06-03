@@ -7,12 +7,13 @@ var calc = new Vue ({
   data : {
         // new CorrelationDetermination(array1, array2)
         // new LinearRegression (array1, array2)
-        correlation: [],
+        correlation: 0,
         regression:[],
         correlationDetResult: 0,
         linearRegResult: 0,
         arrayX: [],
-        arrayY: []
+        arrayY: [],
+        correlationDetCalculated: false
   },
   methods : {
     getData (array) {
@@ -21,17 +22,16 @@ var calc = new Vue ({
       } else {
         this.arrayY.push(...array)
         this.addData(this.arrayX, this.arrayY)
+        this.handleData()
       }
     },
-    // handleData(array) {
-    //   this.getData(array)
-    //   if (this.arrayX.length && this.arrayY.length) {
-    //     this.addData(this.arrayX, this.arrayY)
-    //   }
-    // },
+    handleData() {
+      this.correlationDetResult = this.calcCorrelation(this.arrayX, this.arrayY)
+      this.correlationDetCalculated === true
+    },
     addData (arrayX, arrayY) {
       // add data to new class
-      this.correlation.push(new CorrelationDetermination(arrayX, arrayY))
+      this.correlation = new CorrelationDetermination(arrayX, arrayY)
     },
     calcCorrelation (arrayX, arrayY) {
       let result = this.correlation.calcCorrelation(arrayX, arrayY)

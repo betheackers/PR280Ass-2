@@ -16,13 +16,16 @@ class CorrelationDetermination {
     this.rightbottom = 0
     this.xAndY = 0
   }
+  calcCorrelation(arrayX, arrayY) {
+
+  }
   getSum(total, num) {
     return total + num;
   }
   sumArray (array) {
     return array.reduce(getSum)
   }
-  arraySquare(array) { // what do I do here...
+  arraySquare(array) {
     for (let i = 0; i < array.length; i++) {
       this.squaredArray.push(Math.pow(array[i],2))
     }
