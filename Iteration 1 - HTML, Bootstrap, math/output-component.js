@@ -5,5 +5,10 @@ var outputComponent = {
   props: ['correlationDetResult'],
   template: `
     <p> The correlation of determination is {{ correlationDetResult  }}
-    </p>` // this is from vue-Calc.....
+    </p>`, // this is from vue-Calc.....
+    data: function () {
+      return {
+        // needed?
+      }
+    }
 }

@@ -10,12 +10,25 @@ var calc = new Vue ({
         correlation: [],
         regression:[],
         correlationDetResult: 0,
-        linearRegResult: 0
+        linearRegResult: 0,
+        arrayX: [],
+        arrayY: []
   },
   methods : {
     getData (array) {
-      // get data from loaded files
+      if (!this.arrayX.length) {
+        this.arrayX.push(...array)
+      } else {
+        this.arrayY.push(...array)
+        this.addData(this.arrayX, this.arrayY)
+      }
     },
+    // handleData(array) {
+    //   this.getData(array)
+    //   if (this.arrayX.length && this.arrayY.length) {
+    //     this.addData(this.arrayX, this.arrayY)
+    //   }
+    // },
     addData (arrayX, arrayY) {
       // add data to new class
       this.correlation.push(new CorrelationDetermination(arrayX, arrayY))
@@ -26,6 +39,8 @@ var calc = new Vue ({
     }
   }
 })
+
+
 
 //
 // var ArrayCalc = {

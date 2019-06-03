@@ -38,10 +38,12 @@ var fileLoader = {
         if (this.firstFileLoaded === false) {
           console.log(e.target.result)
           this.firstArray.push(...e.target.result.split(/\s+/g).map(Number))
+          this.$emit('get-data', this.firstArray)
           console.log(this.firstArray)
           this.firstFileLoaded = true
         } else {
           this.secondArray.push(...e.target.result.split(/\s+/g).map(Number))
+          this.$emit('get-data', this.secondArray)
           console.log(this.secondArray)
         }
       }
