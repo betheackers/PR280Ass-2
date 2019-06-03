@@ -31,6 +31,7 @@ var calc = new Vue ({
     },
     addData (arrayX, arrayY) {
       // add data to new class
+      // this.regression = new LinearRegression(arrayX, arrayY)
       this.correlation = new CorrelationDetermination(arrayX, arrayY)
     },
     calcCorrelation (arrayX, arrayY) {
