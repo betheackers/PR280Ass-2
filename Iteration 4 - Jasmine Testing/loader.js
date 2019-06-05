@@ -5,7 +5,7 @@ var fileLoader = {
   template: `
 <div>
   <div class="row">
-        <div class="col-sm">
+        <div class="col-sm" style="max-width: 50%;">
           <h2>Select your first text file</h2>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -17,7 +17,7 @@ var fileLoader = {
             </div>
           </div>
         </div>
-        <div v-if="firstFileLoaded === true" class="col-sm">
+        <div v-if="firstFileLoaded === true" class="col-sm" style="max-width: 50%;">
           <h2>Select a second text file</h2>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -31,7 +31,7 @@ var fileLoader = {
       </div>
   </div>
   <br><br>
-  <table class="table table-striped table-dark table-sm">
+  <table v-if="firstFileLoaded === true" class="table table-striped table-dark table-sm">
     <thead style="text-align:center;">
       <tr>
         <th scope="col">#</th>
