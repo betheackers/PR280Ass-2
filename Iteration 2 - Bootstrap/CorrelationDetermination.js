@@ -8,11 +8,8 @@ class CorrelationDetermination {
     this.sumYSquared = 0
     this.sumArrayTimesArray = 0
     this.sumXTimesSumY = 0
-    // this.squaredArray = []
     this.topRow = 0
     this.bottomRow = 0
-    this.npoweredX = 0
-    this.npoweredY = 0
     this.leftbottom = 0
     this.rightbottom = 0
     this.xAndY = 0
@@ -84,22 +81,3 @@ class CorrelationDetermination {
     return x
   }
 }
-// subtraction (a, b) {
-  //   return a - b
-  // }
-// sumSquaredArray (array) {
-//   return this.sumArray(arraySquare(array))
-// }
-// sumArrTimesArr (x, y) {
-  //   return this.sumArray(arrayTimesArray(x,y))
-  // }
-  // sumOfXTimesSumOfY () {
-    //   return sumX * sumY
-    // }
-    //
-    //
-    // this.npoweredX = this.square(this.sumX)
-    // console.log('this is npoweredY', this.npoweredY)
-    // console.log('this is npoweredX', this.npoweredX)
-    // this.npoweredY = this.square(this.sumY)
-    // console.log('this is npoweredY', this.npoweredY)

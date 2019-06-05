@@ -12,8 +12,8 @@
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    </head>
 
-   <body class="container">
-      <header class="jumbotron text-center">
+   <body style="height:100%;" class="container">
+      <header style="background-color:#28a745 !important" class="jumbotron text-center">
          <h1>Correlation and Linear Regression</h1>
       </header>
 
@@ -24,18 +24,19 @@
           </div>
           <br><br>
           <div v-if="correlationDetCalculated === true" class="container">
-            <output-component :correlation-Det-Result="correlationDetResult"></output-component>
+            <output-component :correlation-Det-Result="correlationDetResult" :Linear-Reg-Result="linearRegResult"></output-component>
           </div>
         </div>
       </main>
-
-      <footer class="page-footer font-small text-center container">
-        <p>Beth Ackerman - PR280 - Assignment 1</p>
+      <br>
+      <br>
+      <br>
+      <footer style="background-color:#215b94; padding:10px; !important" class="container page-footer text-center">
+        <p style="font-weight: bold; color:white;" class="align-middle"> Beth Ackerman - PR280 - Assignment 2</p>
       </footer>
       <script src="CorrelationDetermination.js"></script>
       <script src="loader.js"></script>
       <script src="output-component.js"></script>
       <script src="vue-Calc.js"></script>
-
    </body>
 </html>
