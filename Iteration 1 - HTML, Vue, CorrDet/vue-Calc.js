@@ -27,7 +27,7 @@ var calc = new Vue ({
     },
     handleData() {
       this.correlationDetResult = this.calcCorrelation(this.arrayX, this.arrayY)
-      this.correlationDetCalculated === true
+      this.correlationDetCalculated = true
     },
     addData (arrayX, arrayY) {
       // add data to new class
