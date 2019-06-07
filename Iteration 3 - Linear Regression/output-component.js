@@ -4,7 +4,8 @@
 var outputComponent = {
   props: [
     'correlationDetResult',
-    'linearRegResult'
+    'betaOne',
+    'betaZero'
   ],
   template: `
     <div>
@@ -12,12 +13,12 @@ var outputComponent = {
         <h3> The correlation of determination is {{ correlationDetResult }} </h3>
       </div>
       <div class="alert alert-info" role="alert" >
-        <h3> The linear regression result is {{ linearRegResult }}</h3>
+        <h3> The linear regression result is: Beta 1 =  {{ betaOne }} and Beta 0: {{ betaZero }}</h3>
       </div>
     </div>`, // this is from vue-Calc.....
     data: function () {
       return {
-        // needed?
+        // put above:
       }
     }
 }

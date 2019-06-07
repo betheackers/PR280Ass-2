@@ -5,15 +5,16 @@ var calc = new Vue ({
     'output-component': outputComponent
   },
   data : {
-        // new CorrelationDetermination(array1, array2)
-        // new LinearRegression (array1, array2)
         correlation: 0,
-        regression:[],
+        regression:0,
         correlationDetResult: 0,
-        linearRegResult: 0,
+        betaOne: 0,
+        betaZero: 0,
         arrayX: [],
         arrayY: [],
-        correlationDetCalculated: false
+        linearRegResult: [],
+        correlationDetCalculated: false,
+        linearRegCalculated: false
   },
   methods : {
     getData (array) {
@@ -28,14 +29,23 @@ var calc = new Vue ({
     handleData() {
       this.correlationDetResult = this.calcCorrelation(this.arrayX, this.arrayY)
       this.correlationDetCalculated = true
+      this.linearRegResult = this.calcLinearRegression(this.arrayX, this.arrayY)
+      this.linearRegCalculated = true
     },
     addData (arrayX, arrayY) {
       // add data to new class
-      // this.regression = new LinearRegression(arrayX, arrayY)
       this.correlation = new CorrelationDetermination(arrayX, arrayY)
+      this.regression = new LinearRegression(arrayX, arrayY)
+      console.log(this.regression)
     },
     calcCorrelation (arrayX, arrayY) {
       let result = this.correlation.calcCorrelation()
+      return result
+    },
+    calcLinearRegression (arrayX, arrayY) {
+      let result = this.regression.calcRegression()
+      this.betaOne = this.regression.regression[0]
+      this.betaZero = this.regression.regression[1]
       return result
     }
   }

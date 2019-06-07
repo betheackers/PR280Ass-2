@@ -17,6 +17,7 @@ class CorrelationDetermination {
   }
   calcCorrelation() {
     let result = 0
+
     this.sumX = this.sumArray(this.x)
     this.sumY = this.sumArray(this.y)
     this.sumArrayTimesArray = this.sumArray(this.arrayTimesArray(this.x, this.y))

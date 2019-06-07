@@ -23,8 +23,8 @@
             <file-loader @get-data="getData"></file-loader>
           </div>
           <br><br>
-          <div v-if="correlationDetCalculated === true" class="container">
-            <output-component :correlation-Det-Result="correlationDetResult" :Linear-Reg-Result="linearRegResult"></output-component>
+          <div v-if="correlationDetCalculated === true && linearRegCalculated === true" class="container">
+            <output-component :correlation-Det-Result="correlationDetResult" :Beta-One="betaOne" :Beta-Zero="betaZero" ></output-component>
           </div>
         </div>
       </main>
@@ -35,6 +35,7 @@
         <p style="font-weight: bold; color:white;" class="align-middle"> Beth Ackerman - PR280 - Assignment 2</p>
       </footer>
       <script src="CorrelationDetermination.js"></script>
+      <script src="LinearRegression.js"></script>
       <script src="loader.js"></script>
       <script src="output-component.js"></script>
       <script src="vue-Calc.js"></script>
