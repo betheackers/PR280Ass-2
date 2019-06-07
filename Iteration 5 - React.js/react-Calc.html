@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Correlation of Determination</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="container">
+  <!-- View -->
+  <header style="background-color:#28a745 !important" class="jumbotron text-center">
+     <h1>Correlation and Linear Regression</h1>
+  </header>
+
+  <div id="app"></div>
+
+  <footer style="background-color:#215b94; padding:10px; !important" class="container page-footer text-center">
+    <p style="font-weight: bold; color:white;" class="align-middle"> Beth Ackerman - PR280 - Assignment 2</p>
+  </footer>
+  <!-- Model found here: -->
+  <script src="CorrelationDetermination.js"></script>
+
+  <script type="text/babel">
+    // Controller
+    class App extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {
+          calcCorComplete: false,
+          arrayX: [],
+          arrayY: [],
+          correlationDetResult:0,
+          calcLRComplete:false,
+          linearRegResult:0
+        }
+        this.firstDataUpdated=this.firstDataUpdated.bind(this)
+        this.secondDataUpdated=this.secondDataUpdated.bind(this)
+      }
+      componentDidUpdate(prevProps, prevState) {
+        if (!this.state.calcCorComplete) {
+          if (this.state.arrayX.length > 0  && this.state.arrayY.length > 0) {
+            this.performCorDet()
+          }
+        }
+      }
+      performCorDet() {
+        let calc = new CorrelationDetermination(this.state.arrayX, this.state.arrayY)
+        let result = calc.calcCorrelation()
+        console.log(result)
+        this.setState({
+          correlationDetResult:result,
+          calcCorComplete:true
+        })
+      }
+      // performLinReg() {
+      //   let calc = new LinearRegression(this.state.arrayX, this.state.arrayY)
+      //   let result = calc.calcLinReg()
+      //   console.log(result)
+      //   this.setState({
+      //     linearRegResult:result,
+      //     calcLRComplete:true
+      //   })
+      // }
+      firstDataUpdated(firstArray) {
+        this.setState({arrayX:firstArray})
+      }
+      secondDataUpdated(secondArray) {
+        this.setState({arrayY:secondArray})
+      }
+      render () {
+        return (
+          <div className="container">
+            <FileLoader dataUpdated={this.firstDataUpdated}/>
+            {<h2>The first array X is {this.state.arrayX.join()}</h2>}
+            <br />
+            <br />
+            <FileLoader dataUpdated={this.secondDataUpdated}/>
+            {<h2>The first array Y is {this.state.arrayY.join()}</h2>}
+            <br />
+            <br />
+            {this.state.calcCorComplete && <h3>The correlation of determination is {this.state.correlationDetResult}</h3>}
+            <br />
+            <br />
+          </div>
+          // move this up : {this.state.calcCorComplete && <h3>The linear regression is {this.state.linearRegResult}</h3>}
+        )
+      }
+    }
+    class FileLoader extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {content: ''}
+
+        this.onFileChange = this.onFileChange.bind(this)
+      }
+
+      onFileChange (e) {
+        let files = e.target.files
+        if (files.length) {
+          this.loadNumbers(files[0])
+        }
+      }
+
+      loadNumbers (file) {
+        let reader = new window.FileReader()
+        reader.onload = (e) => {
+          this.props.dataUpdated(e.target.result.trim().split(/\s+/g).map(Number))
+        }
+        reader.readAsText(file)
+        }
+        render() {
+          return (
+            <div className="container">
+              <input type='file' onChange={this.onFileChange} />
+            </div>)
+        }
+        // render() {
+        //   let style = { backgroundColor:"red" }
+        //   return (<div className="container" style={ style }>
+        //     <input type='file' onChange={this.onFileChange} />
+        //     </div>)
+        // }
+    }
+
+    const element = <App />
+
+    ReactDOM.render(
+      element,
+      document.getElementById('app')
+    )
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Correlation and Linear Regression | PR280 | Beth Ackerman</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <!-- development version, includes helpful console warnings -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+
+   <body style="height:100%;" class="container">
+      <header style="background-color:#28a745 !important" class="jumbotron text-center">
+         <h1>Correlation and Linear Regression</h1>
+      </header>
+
+      <main>
+        <div id="calculation-app">
+          <div class="container">
+            <file-loader @get-data="getData"></file-loader>
+          </div>
+          <br><br>
+          <div v-if="correlationDetCalculated === true" class="container">
+            <output-component :correlation-Det-Result="correlationDetResult" :Linear-Reg-Result="linearRegResult"></output-component>
+          </div>
+        </div>
+      </main>
+      <br>
+      <br>
+      <br>
+      <footer style="background-color:#215b94; padding:10px; !important" class="container page-footer text-center">
+        <p style="font-weight: bold; color:white;" class="align-middle"> Beth Ackerman - PR280 - Assignment 2</p>
+      </footer>
+      <script src="CorrelationDetermination.js"></script>
+      <script src="loader.js"></script>
+      <script src="output-component.js"></script>
+      <script src="vue-Calc.js"></script>
+   </body>
+</html>
