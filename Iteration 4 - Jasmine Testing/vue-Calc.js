@@ -5,10 +5,8 @@ var calc = new Vue ({
     'output-component': outputComponent
   },
   data : {
-        // new CorrelationDetermination(array1, array2)
-        // new LinearRegression (array1, array2)
         correlation: 0,
-        regression:[],
+        regression: 0,
         correlationDetResult: 0,
         linearRegResult: 0,
         arrayX: [],
@@ -40,20 +38,3 @@ var calc = new Vue ({
     }
   }
 })
-
-
-
-//
-// var ArrayCalc = {
-//   data: function () {
-//     return {
-//
-//     }
-//   }
-// }
-// var BiArrayCalc = {
-//   data: function () {
-//     return {
-//
-//     }
-// }
