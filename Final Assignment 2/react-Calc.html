@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Correlation of Determination</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="container">
+  <!-- View -->
+  <header style="background-color:#28a745 !important" class="jumbotron text-center">
+     <h1>Correlation and Linear Regression</h1>
+  </header>
+
+  <div id="app"></div>
+
+  <footer style="background-color:#215b94; padding:10px; !important" class="container page-footer text-center">
+    <p style="font-weight: bold; color:white;" class="align-middle"> Beth Ackerman - PR280 - Assignment 2</p>
+  </footer>
+  <!-- Model found here: -->
+  <script src="CorrelationDetermination.js"></script>
+  <script src="LinearRegression.js"></script>
+
+  <script type="text/babel">
+    // Controller
+    class App extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {
+          calcCorComplete: false,
+          arrayX: [],
+          arrayY: [],
+          correlationDetResult: 0,
+          calcLRComplete: false,
+          betaOne: 0,
+          betaZero: 0
+        }
+        this.firstDataUpdated = this.firstDataUpdated.bind(this)
+        this.secondDataUpdated = this.secondDataUpdated.bind(this)
+      }
+      componentDidUpdate (prevProps, prevState) {
+        if (!this.state.calcCorComplete) {
+          if (this.state.arrayX.length > 0 && this.state.arrayY.length > 0) {
+            this.performCorDet()
+            this.performLinReg()
+          }
+        }
+      }
+      performCorDet () {
+        let calc = new CorrelationDetermination(this.state.arrayX, this.state.arrayY)
+        let result = calc.calcCorrelation()
+        console.log(result)
+        this.setState({
+          correlationDetResult: result,
+          calcCorComplete: true
+        })
+      }
+      performLinReg () {
+        let calc = new LinearRegression(this.state.arrayX, this.state.arrayY)
+        let result = []
+        result = calc.calcRegression()
+        console.log('this is result in array', result)
+        this.setState({
+          betaOne: result[1],
+          betaZero: result[0],
+          calcLRComplete: true
+        })
+        console.log(this.betaOne)
+        console.log(this.betaZero)
+      }
+      firstDataUpdated (firstArray) {
+        this.setState({arrayX: firstArray})
+      }
+      secondDataUpdated (secondArray) {
+        this.setState({arrayY: secondArray})
+      }
+      render () {
+        return (
+          <div className='container'>
+            <h2>Select first text file</h2>
+            <FileLoader dataUpdated={this.firstDataUpdated} />
+            {<h3>The first array X is {this.state.arrayX.join()}</h3>}
+            <br />
+            <br />
+            <h2>Select second text file</h2>
+            <FileLoader dataUpdated={this.secondDataUpdated} />
+            {<h3>The first array Y is {this.state.arrayY.join()}</h3>}
+            <br />
+            <br />
+            <h3><b>Results</b></h3>
+            {this.state.calcCorComplete && <h4>The correlation of determination is {this.state.correlationDetResult}</h4>}
+            <br />
+            {this.state.calcCorComplete && <h4>The linear regression is: Beta 1:{this.state.betaOne} and Beta 0:{this.state.betaZero}</h4>}
+            <br />
+          </div>
+        )
+      }
+    }
+
+    class FileLoader extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {content: ''}
+
+        this.onFileChange = this.onFileChange.bind(this)
+      }
+
+      onFileChange (e) {
+        let files = e.target.files
+        if (files.length) {
+          this.loadNumbers(files[0])
+        }
+      }
+
+      loadNumbers (file) {
+        let reader = new window.FileReader()
+        reader.onload = (e) => {
+          this.props.dataUpdated(e.target.result.trim().split(/\s+/g).map(Number))
+        }
+        reader.readAsText(file)
+      }
+      render () {
+        return (
+          <div>
+            <div className='input-group mb-3'>
+              <div className='input-group-prepend'>
+                <span className='input-group-text' id='inputGroupFileAddon01'>Upload</span>
+              </div>
+              <div className='custom-file'>
+                <input type='file' onChange={this.onFileChange} className='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01' />
+                <label className='custom-file-label' htmlFor='inputGroupFile01'>Choose file</label>
+              </div>
+            </div>
+          </div>
+        )
+      }
+        // FOR FUTURE - styling within React.
+        // render() {
+        //   let style = { backgroundColor:"red" }
+        //   return (<div className="container" style={ style }>
+        //     <input type='file' onChange={this.onFileChange} />
+    }
+
+    const element = <App />
+
+    ReactDOM.render(
+      element,
+      document.getElementById('app')
+    )
+
+</script>
+</body>
+
+</html>
