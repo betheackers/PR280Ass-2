@@ -96,9 +96,12 @@
             <br />
             <br />
             <h3><b>Results</b></h3>
-            {this.state.calcCorComplete && <h4>The correlation of determination is {this.state.correlationDetResult}</h4>}
+            {this.state.calcCorComplete && <h4>The correlation of determination is:
+              <br /> {this.state.correlationDetResult}</h4>}
             <br />
-            {this.state.calcCorComplete && <h4>The linear regression is: Beta 1:{this.state.betaOne} and Beta 0:{this.state.betaZero}</h4>}
+            {this.state.calcCorComplete && <h4>The linear regression is:
+              <br /> Beta 1: {this.state.betaOne}
+              <br /> Beta 0: {this.state.betaZero}</h4>}
             <br />
           </div>
         )
