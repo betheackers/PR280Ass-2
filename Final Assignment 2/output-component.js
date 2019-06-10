@@ -11,10 +11,17 @@ var outputComponent = {
   template: `
     <div>
       <div class="alert alert-warning" role="alert" >
-        <h3> The correlation of determination is {{ correlationDetResult }} </h3>
+        <h3>
+          The correlation of determination is: <br><br>
+          {{ correlationDetResult }}
+        </h3>
       </div>
       <div class="alert alert-info" role="alert" >
-        <h3> The linear regression result is: Beta 1:  {{ betaOne }} and Beta 0: {{ betaZero }}</h3>
+        <h3>
+          The linear regression result is: <br><br>
+          Beta 1:  {{ betaOne }} <br>
+          Beta 0: {{ betaZero }}
+        </h3>
       </div>
     </div>`
 }

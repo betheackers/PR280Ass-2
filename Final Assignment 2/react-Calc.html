@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Correlation of Determination</title>
+  <title>React: Correlation and Linear Regression | PR280 | Beth Ackerman</title>
 
   <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -17,7 +17,7 @@
 <body class="container">
   <!-- View -->
   <header style="background-color:#28a745 !important" class="jumbotron text-center">
-     <h1>Correlation and Linear Regression</h1>
+     <h1>React: Correlation and Linear Regression</h1>
   </header>
 
   <div id="app"></div>
@@ -69,8 +69,8 @@
         result = calc.calcRegression()
         console.log('this is result in array', result)
         this.setState({
-          betaOne: result[1],
-          betaZero: result[0],
+          betaOne: result[0],
+          betaZero: result[1],
           calcLRComplete: true
         })
         console.log(this.betaOne)
