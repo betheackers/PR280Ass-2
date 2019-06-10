@@ -1,4 +1,4 @@
-/* 
+/*
 Building a Node.js static file server (files over HTTP) using ES6+
 https://adrianmejia.com/blog/2016/08/24/building-a-node-js-static-file-server-files-over-http-using-es6/
 
@@ -55,8 +55,8 @@ http.createServer(function (request, response) {
       return
     }
 
-    // Corresponding file found	  
-    // HTTP Status: 200 : OK      
+    // Corresponding file found
+    // HTTP Status: 200 : OK
     response.writeHead(200, {
       'Content-Type': mimeType[ext]
     })
@@ -64,7 +64,7 @@ http.createServer(function (request, response) {
     // Write the content of the file to response body
     response.write(data)
 
-    // Send the response body 
+    // Send the response body
     response.end()
   })
 }).listen(8081)
